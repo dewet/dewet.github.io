@@ -146,7 +146,25 @@ The first thing I am going to do now if compare the <i>ID</i> and <i>Password</i
 
 If the <i>Password</i> does not match the <i>ID</i>, the fields will reset.
 
+{% highlight java %}
 
+	for(int i = 0; i<idArray.length; i++){
+		if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
+			success=true;
+		}
+		if(success==true){
+			headerLabel.setText("Login Successful");
+			repaint();
+		}
+		else{
+			headerLabel.setText("Login Unsuccessful");
+				idField.setText("");
+				passwordField.setText("");
+				repaint();
+			}
+	}
+
+{% endhighlight %}
 
 
 and Voila.
