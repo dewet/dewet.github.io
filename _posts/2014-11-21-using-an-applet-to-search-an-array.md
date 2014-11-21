@@ -15,9 +15,8 @@ categories: java assignments
 Okay, So now I have been presented with this code:
 
 <br>
-
 {% highlight java %}
-public class Login extends Applet implements ActionListener{
+	public class Login extends Applet implements ActionListener{
 
 	//Declaring variables
 	String id, password;
@@ -64,7 +63,6 @@ public class Login extends Applet implements ActionListener{
 	}
 }
 {% endhighlight %}
-
 <br>
 
 It is a basic login page. Although it doesn't do anything.
@@ -79,7 +77,6 @@ So I have been asked to do two things.
 ### Part A, Using HTML to Host my Java Applet
 
 <br>
-
 {% highlight html %}
 <html>
 <head>
@@ -94,7 +91,6 @@ So I have been asked to do two things.
 </body>
 </html>
 {% endhighlight %}
-
 <br>
 
 Now that we have created this host document, we can get started on the Applet.
@@ -104,7 +100,6 @@ Now that we have created this host document, we can get started on the Applet.
 <br>
 
 Okay, so firstly, we have been given a bunch of code already. But if I compile this, I get a bunch of errors. I'm going to have to import some packages.
-
 {% highlight java %}
 import java.awt.*;
 import java.applet.*;
