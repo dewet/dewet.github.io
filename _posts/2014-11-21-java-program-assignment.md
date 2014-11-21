@@ -304,33 +304,3 @@ public class Checkerboard extends Frame implements ActionListener{
 
 }
 {% endhighlight %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
