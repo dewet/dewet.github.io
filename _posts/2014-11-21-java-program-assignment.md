@@ -8,7 +8,15 @@ categories: java assignments
 
 This is going to be a post on creating your very own Checker board.
 I am going to program this step by step.
+## Here is the program:
 
+![checkerboard](http://i.imgur.com/U2ftOcp.png)<br>
+![checkerboard-input](http://i.imgur.com/HmSzBmR.png)<br>
+![checkerboard-input2](http://imgur.com/U2ftOcp,HmSzBmR,t4XZvHp#2)<br>
+
+<br>
+Hopefully this is simple to understand. Hopefully it is fairly self explanatory.
+<br>
 ### Creating the application
 First I am going to need to import some packages and create my Checkerboard class.
 <br>
@@ -254,9 +262,8 @@ public class Checkerboard extends Frame implements ActionListener{
 		add(buttonPanel, BorderLayout.SOUTH);
 		
 		addWindowListener(
-				new WindowAdapter()
-						{
-					public void windowClosing(WindowEvent e)
+			new WindowAdapter(){
+				public void windowClosing(WindowEvent e)
 					{
 						System.exit(0);
 					}
