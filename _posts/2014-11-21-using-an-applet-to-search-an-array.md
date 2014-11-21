@@ -147,22 +147,85 @@ The first thing I am going to do now if compare the <i>ID</i> and <i>Password</i
 If the <i>Password</i> does not match the <i>ID</i>, the fields will reset.
 
 
-{& highlight java %}
 
-for(int i = 0; i<idArray.length; i++){
-	if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
-		success=true;
+
+and Voila.
+
+## And we are done! 
+
+Just take a look at that finished code!
+
+{% highlight java %}
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+
+public class Login extends Applet implements ActionListener
+{
+	//Declaring variables
+	String id, password;
+	boolean success;
+
+	String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
+	String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
+
+	//Create components for applet
+	Label headerLabel = new Label("Please type your ID and Password");
+
+	Label idLabel = new Label("ID:");
+	TextField idField = new TextField(8);
+
+	Label passwordLabel = new Label("Password:");
+	TextField passwordField = new TextField(8);
+
+
+	Button loginButton = new Button("Login");
+
+	public void init(){
+	//Set color, layout, and add components
+	setBackground(Color.orange);
+
+	setLayout(new FlowLayout(FlowLayout.LEFT,50,30));
+
+	add(headerLabel);
+
+	add(idLabel);
+		add(idField);
+		idField.requestFocus();
+
+	add(passwordLabel);
+		add(passwordField);
+		passwordField.setEchoChar('*');
+
+	add(loginButton);
+		loginButton.addActionListener(this);
 	}
-	if(success==true){
-		headerLabel.setText("Login Successful");
-		repaint();
-	}
-	else{
-		headerLabel.setText("Login Unsuccessful");
+
+	public void actionPerformed(ActionEvent e){
+		success = false;
+      
+      
+		//Sequential search
+      
+		id = idField.getText();
+		password = passwordField.getText();
+      
+	for(int i = 0; i<idArray.length; i++){
+		if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
+			success=true;
+		}
+		
+		if(success==true){
+			headerLabel.setText("Login Successful");
+			repaint();
+		}else{
+			headerLabel.setText("Login Unsuccessful");
 			idField.setText("");
-    		passwordField.setText("");
-    		repaint();
-    	  }
+			passwordField.setText("");
+			repaint();
+			}
+		}
+	}
 }
-
 {% endhighlight %}
+
