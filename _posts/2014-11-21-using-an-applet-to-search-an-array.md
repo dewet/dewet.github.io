@@ -148,6 +148,7 @@ If the <i>Password</i> does not match the <i>ID</i>, the fields will reset.
 
 
 {& highlight java %}
+
 for(int i = 0; i<idArray.length; i++){
 	if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
 		success=true;
@@ -163,4 +164,5 @@ for(int i = 0; i<idArray.length; i++){
     		repaint();
     	  }
 }
+
 {% endhighlight %}
