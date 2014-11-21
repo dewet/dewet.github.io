@@ -12,7 +12,7 @@ I am going to program this step by step.
 
 ![checkerboard](http://i.imgur.com/U2ftOcp.png)<br>
 ![checkerboard-input](http://i.imgur.com/HmSzBmR.png)<br>
-![checkerboard-input2](http://imgur.com/U2ftOcp,HmSzBmR,t4XZvHp#2)<br>
+![checkerboard-input2](http://i.imgur.com/t4XZvHp.png)<br>
 
 <br>
 Hopefully this is simple to understand. Hopefully it is fairly self explanatory.
