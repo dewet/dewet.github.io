@@ -80,20 +80,6 @@ So I have been asked to do two things.
 
 <br>
 
-{% highlight html %}
-<html>
-<head>
-	<title>
-		Password Applet
-	</title>
-</head>
-<body>
-	<applet code="PasswordApplet.class" width="300" height="300">
-		Password Applet
-	</applet>
-</body>
-</html>
-{% endhighlight %}
 
 <br>
 
