@@ -6,268 +6,302 @@ summary:    Just going through very basic Login system, This was an assignment g
 categories: java assignments
 ---
 
-This will build a simple Login Applet.
+This is going to be a post on creating your very own Checker board.
+I am going to program this step by step.
+<br>
 
 ### Screenshots of the program 
 <br>
-![login](http://i.imgur.com/d3nQQnb.png)<br>
-![login-successful](http://i.imgur.com/HG1n7FO.png)<br>
-![login-unsuccessful](http://i.imgur.com/Sxy6kzb.png)<br>
-
-Okay, So now I have been presented with this code:
+![checkerboard](http://i.imgur.com/U2ftOcp.png)<br>
+![checkerboard-input](http://i.imgur.com/HmSzBmR.png)<br>
+![checkerboard-input2](http://i.imgur.com/t4XZvHp.png)<br>
 
 <br>
+Hopefully this is simple to understand. Hopefully it is fairly self explanatory.
+<br>
 
+### Creating the application
+First I am going to need to import some packages and create my Checkerboard class.
+<br>
 {% highlight java %}
-
-public class Login extends Applet implements ActionListener{
-
-	//Declaring variables
-	String id, password;
-	boolean success;
-
-	//Create components for applet
-	Label headerLabel = new Label("Please type your ID and Password");
-
-	Label idLabel = new Label("ID:");
-		TextField idField = new TextField(8);
-
-	Label passwordLabel = new Label("Password:");
-		TextField passwordField = new TextField(8);
-
-
-	Button loginButton = new Button("Login");
-
-	public void init(){
-	
-	//Set color, layout, and add components
-	setBackground(Color.orange);
-
-	setLayout(new FlowLayout(FlowLayout.LEFT,50,30));
-
-	add(headerLabel);
-
-	add(idLabel);
-		add(idField);
-		idField.requestFocus();
-
-	add(passwordLabel);
-		add(passwordField);
-		passwordField.setEchoChar('*');
-
-	add(loginButton);
-		loginButton.addActionListener(this);
-	}
-
-	public void actionPerformed(ActionEvent e){
-	success = false;
-
-	//Sequential search
-
-	}
-}
-
-{% endhighlight %}
-
-<br>
-
-It is a basic login page. Although it doesn't do anything.
-
-<br>
-
-So I have been asked to do two things.
-
-<b>Part A</b> Create a Host Document.
-<b>Part B</b> Create an Applet that Searches an Array to perform the task of logging in. (We will not be dealing with any sessions at the moment.)
-
-### Part A, Using HTML to Host my Java Applet
-
-<br>
-
-{% highlight html %}
-
-<html>
-<head>
-	<title>
-		Password Applet
-	</title>
-</head>
-<body>
-	<applet code="PasswordApplet.class" width="300" height="300">
-		Password Applet
-	</applet>
-</body>
-</html>
-
-{% endhighlight %}
-
-<br>
-
-Now that we have created this host document, we can get started on the Applet.
-
-### Part B, Creating the Applet
-
-<br>
-
-Okay, so firstly, we have been given a bunch of code already. But if I compile this, I get a bunch of errors. I'm going to have to import some packages.
-
-{% highlight java %}
-
 import java.awt.*;
-import java.applet.*;
 import java.awt.event.*;
 
+public class Checkerboard extends Frame implements ActionListener{}
 {% endhighlight %}
-
 <br>
+Next, I am going to declare some variables and construct some constructor methods.
+<br>
+{% highlight java %}
+import java.awt.*;
+import java.awt.event.*;
 
-That's better.
-
-Okay, so what I am going to do first is create some Arrays for the <i>IDs</i> and corresponding <i>Passwords</i>.
-You can name these whatever you want.
-
+public class Checkerboard extends Frame implements ActionListener{
+	int start, stop, step;
+	
+	Panel blockPanel = new Panel();
+		TextArea blockDisplay[] = new TextArea[16];
+		
+	Panel fieldsAndLabels = new Panel();	
+		TextField startField = new TextField(5);
+		TextField stopField = new TextField(5);
+		TextField stepField = new TextField(5);
+		
+		Label startLabel = new Label("Start");
+		Label stopLabel = new Label("Stop");
+		Label stepLabel = new Label("Step");
+	
+	Panel buttonPanel = new Panel();
+		Button goButton = new Button("GO!");
+		Button clearButton = new Button("Clear.");
+	}
+{% endhighlight %}
+<br>
+Because this class extends Frame, we will have to create a new class to output these constructor methods.
+Within this class, we will run a for loop, creating 16 TextArea() constructs, we will also construct the layout.
+<br>
 {% highlight java %}
 
-	String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
-	String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
+public Checkerboard(){
+		start = 0;
+		stop = 0;
+		step = 0;
+		
+		this.setLayout(new BorderLayout());
+		
+		blockPanel.setLayout(new GridLayout(4, 4, 2, 3));
+		buttonPanel.setLayout(new FlowLayout());
+		fieldsAndLabels.setLayout(new FlowLayout());
+		
+		for(int i = 0; i<16; i++){
+			blockDisplay[i] = new TextArea(null, 3, 5, 3);;
+			blockPanel.add(blockDisplay[i]);
+			blockDisplay[i].setEditable(false);
+			blockDisplay[i].setText(i + "");
+		}
+		
+		
+		buttonPanel.add(goButton);
+		goButton.addActionListener(this);
+		buttonPanel.add(clearButton);
+		clearButton.addActionListener(this);
+		
+		fieldsAndLabels.add(startField);
+		fieldsAndLabels.add(stopField);
+		fieldsAndLabels.add(stepField);
+		
+		fieldsAndLabels.add(startLabel);
+		fieldsAndLabels.add(stopLabel);
+		fieldsAndLabels.add(stepLabel);
+	}
 	
 {% endhighlight %}
-
 <br>
-
-We can just slip that in under the declared variables in our Login class.
-
-and now all that we need to get this code working is a little bit of thought.
-
-I am going to add these lines of code to make things a little easier on me.
-
+Also going to add an <i>addWindowListener()</i> method to the Checkerboard class allowing the user to quit the application.
+<br>
 {% highlight java %}
-
-id = idField.getText();
-password = passwordField.getText();
-
+addWindowListener(
+	new WindowAdapter(){
+		public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		}
+	);
 {% endhighlight %}
-
 <br>
 
-Now we are going to focus on the <i>actionPerformed()</i> method for now.
-
+So overall, this application still doesn't do anything.
+What I am going to do next will check to see if the <i>go</i> button or the <i>clear</i> button have been pressed and then converting the text fields answers into <i>integers</i> using the Integer.parseInt(<i>var</i>) method if <i>go</i> is pressed, if <i>clear</i> is pressed it will set every block in the <i>blockDisplay[]</i> Array.
+<br>
 {% highlight java %}
-
-public void actionPerformed(ActionEvent e)
-	{
-		success = false;
-
-		//Sequential search
-
-	}
-	
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == goButton){
+			start = Integer.parseInt(startField.getText());
+			stop = Integer.parseInt(stopField.getText());
+			step = Integer.parseInt(stepField.getText());
+			
+			for(int i = start; i<stop; i+=step){
+				blockDisplay[i].setBackground(green);
+			}
+		}else if(e.getSource() == clearButton){
+			for(int i = 0; i<16; i++){
+			blockDisplay[i].setBackground(white);
+			}
+			startField.setText("");
+			stopField.setText("");
+			stepField.setText("");
+		}
 {% endhighlight %}
-
 <br>
-
-The first thing I am going to do now if compare the <i>ID</i> and <i>Password</i> using this bit of code. By making <i>success</i>=<i>true</i>; if success = true, Login Successful, if success = false, Login Unsuccessful.
+I am adding two color constructors and assigning them to the variables <i>white</i>, <i>red</i>and <i>green</i>, <i>white</i> has been used in the previous code block.
 <br>
-If the <i>Password</i> does not match the <i>ID</i>, the fields will reset.
-
-{& highlight java %}
-
-for(int i = 0; i<idArray.length; i++){
-	if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
-		success=true;
-	}
-	if(success==true){
-		headerLabel.setText("Login Successful");
-		repaint();
-	}
-	else{
-		headerLabel.setText("Login Unsuccessful");
-			idField.setText("");
-    		passwordField.setText("");
-    		repaint();
-    	  }
+{% highlight java %}
+Color white = new Color(250,250,250);
+Color red = new Color(255, 90, 90);
+Color green = new Color(140, 215, 40);
+{% endhighlight %}
+<br>
+Also going to make all the boxes red when used. by adding this line of code into the loop the constructs the boxes.
+<br>
+{% highlight java %}
+blockDisplay[i].setBackground(red);
+{% endhighlight %}
+<br><br>
+Okay, now, I have decided to tweak one or two things. here they are. added (i+1) into the output of each box to make them start from box 1 instead of box 0.
+<br>
+{% highlight java %}
+blockDisplay[i].setText((i+1) + "");
+{% endhighlight %}
+<br>
+Also changed the layout a little, so that the labels will be displayed a long side there corresponding text field. also layout the text in a nice South, Center, North way.
+<br>
+{% highlight java %}
+fieldsAndLabels.add(startField);
+	fieldsAndLabels.add(startLabel);
+		
+fieldsAndLabels.add(stopField);
+	fieldsAndLabels.add(stopLabel);
+		
+fieldsAndLabels.add(stepField);
+	fieldsAndLabels.add(stepLabel);
+		
+add(blockPanel, BorderLayout.NORTH);
+add(fieldsAndLabels, BorderLayout.CENTER);
+add(buttonPanel, BorderLayout.SOUTH);
+{% endhighlight %}
+<br>
+Last part in the ActionListener class, I added another for loop allowing me to be able to execute the input from the user.
+{% highlight java %}
+for(int i = start; i<stop; i+=step){
+	blockDisplay[i].setBackground(green);
 }
-
 {% endhighlight %}
-
-Voila.
+<br>
+Lastly, I added a main class that sets the boundaries for the frame, sets the title, and allows it to be visible.
+<br>
+{% highlight java %}
+public static void main(String[] args){
+	Checkerboard f = new Checkerboard();
+	f.setBounds(50, 100, 300, 400);
+	f.setTitle("Checkerboard Array");
+	f.setVisible(true);
+	}
+{% endhighlight %}
+<br>
 
 ## And we are done! 
 
 Just take a look at that finished code!
 
 {% highlight java %}
-
 import java.awt.*;
-import java.applet.*;
 import java.awt.event.*;
 
-public class Login extends Applet implements ActionListener
-{
-	//Declaring variables
-	String id, password;
-	boolean success;
 
-	String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
-	String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
+public class Checkerboard extends Frame implements ActionListener{
 
-	//Create components for applet
-	Label headerLabel = new Label("Please type your ID and Password");
-
-	Label idLabel = new Label("ID:");
-	TextField idField = new TextField(8);
-
-	Label passwordLabel = new Label("Password:");
-	TextField passwordField = new TextField(8);
-
-
-	Button loginButton = new Button("Login");
-
-	public void init(){
-	//Set color, layout, and add components
-	setBackground(Color.orange);
-
-	setLayout(new FlowLayout(FlowLayout.LEFT,50,30));
-
-	add(headerLabel);
-
-	add(idLabel);
-		add(idField);
-		idField.requestFocus();
-
-	add(passwordLabel);
-		add(passwordField);
-		passwordField.setEchoChar('*');
-
-	add(loginButton);
-		loginButton.addActionListener(this);
-	}
-
-	public void actionPerformed(ActionEvent e){
-		success = false;
-      
-      
-		//Sequential search
-      
-		id = idField.getText();
-		password = passwordField.getText();
-      
-	for(int i = 0; i<idArray.length; i++){
-		if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
-			success=true;
+	int start, stop, step;
+	
+	Panel blockPanel = new Panel();
+		TextArea blockDisplay[] = new TextArea[16];
+		
+	Panel fieldsAndLabels = new Panel();	
+		TextField startField = new TextField(5);
+		TextField stopField = new TextField(5);
+		TextField stepField = new TextField(5);
+		
+		Label startLabel = new Label("Start");
+		Label stopLabel = new Label("Stop");
+		Label stepLabel = new Label("Step");
+	
+	Panel buttonPanel = new Panel();
+		Button goButton = new Button("GO!");
+		Button clearButton = new Button("Clear.");
+		
+	Color white = new Color(250,250,250);
+	Color red = new Color(255, 90, 90);
+	Color green = new Color(140, 215, 40);
+	public Checkerboard(){
+		start = 0;
+		stop = 0;
+		step = 0;
+		
+	this.setLayout(new BorderLayout());
+		blockPanel.setLayout(new GridLayout(4, 4, 2, 3));
+		buttonPanel.setLayout(new FlowLayout());
+		fieldsAndLabels.setLayout(new FlowLayout());
+		
+		for(int i = 0; i<16; i++){
+			blockDisplay[i] = new TextArea(null, 3, 5, 3);;
+			blockPanel.add(blockDisplay[i]);
+			blockDisplay[i].setEditable(false);
+			blockDisplay[i].setText((i+1) + "");
+			blockDisplay[i].setBackground(red);
 		}
 		
-		if(success==true){
-			headerLabel.setText("Login Successful");
-			repaint();
-		}else{
-			headerLabel.setText("Login Unsuccessful");
-			idField.setText("");
-			passwordField.setText("");
-			repaint();
-			}
-		}
+		
+		
+		
+		buttonPanel.add(goButton);
+		goButton.addActionListener(this);
+		buttonPanel.add(clearButton);
+		clearButton.addActionListener(this);
+		
+		fieldsAndLabels.add(startField);
+			fieldsAndLabels.add(startLabel);
+		
+		fieldsAndLabels.add(stopField);
+			fieldsAndLabels.add(stopLabel);
+		
+		fieldsAndLabels.add(stepField);
+			fieldsAndLabels.add(stepLabel);
+		
+		
+		
+		
+		add(blockPanel, BorderLayout.NORTH);
+		add(fieldsAndLabels, BorderLayout.CENTER);
+		add(buttonPanel, BorderLayout.SOUTH);
+		
+		addWindowListener(
+			new WindowAdapter(){
+				public void windowClosing(WindowEvent e)
+					{
+						System.exit(0);
+					}
+				}
+			);
+		
+		
 	}
-}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == goButton){
+			start = Integer.parseInt(startField.getText());
+			stop = Integer.parseInt(stopField.getText());
+			step = Integer.parseInt(stepField.getText());
+			
+			for(int i = start; i<stop; i+=step){
+				blockDisplay[i].setBackground(green);
+			}
+		}else if(e.getSource() == clearButton){
+			for(int i = 0; i<16; i++){
+			blockDisplay[i].setBackground(white);
+			}
+			startField.setText("");
+			stopField.setText("");
+			stepField.setText("");
+		}
+		
+	}
+	
+	public static void main(String[] args){
+		Checkerboard f = new Checkerboard();
+		f.setBounds(50, 100, 300, 400);
+		f.setTitle("Checkerboard Array");
+		f.setVisible(true);
+	}
 
+}
 {% endhighlight %}
+
