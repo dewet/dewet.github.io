@@ -19,7 +19,8 @@ import java.awt.event.*;
 public class Checkerboard extends Frame implements ActionListener{}
 {% endhighlight %}
 
-Next, I am going to declare some variables.
+
+Next, I am going to declare some variables and construct some constructor methods.
 
 {% highlight java %}
 import java.awt.*;
@@ -46,4 +47,93 @@ public class Checkerboard extends Frame implements ActionListener{
 	}
 {% endhighlight %}
 
-This is the end of my test hehe
+Because this class extends Frame, we will have to create a new class to output these constructor methods.
+Within this class, we will run a for loop, creating 16 TextArea() constructs, we will also construct the layout.
+
+{% highlight java %}
+
+public Checkerboard(){
+		start = 0;
+		stop = 0;
+		step = 0;
+		
+		this.setLayout(new BorderLayout());
+		
+		blockPanel.setLayout(new GridLayout(4, 4, 2, 3));
+		buttonPanel.setLayout(new FlowLayout());
+		fieldsAndLabels.setLayout(new FlowLayout());
+		
+		for(int i = 0; i<16; i++){
+			blockDisplay[i] = new TextArea(null, 3, 5, 3);;
+			blockPanel.add(blockDisplay[i]);
+			blockDisplay[i].setEditable(false);
+			blockDisplay[i].setText(i + "");
+		}
+		
+		
+		buttonPanel.add(goButton);
+		goButton.addActionListener(this);
+		buttonPanel.add(clearButton);
+		clearButton.addActionListener(this);
+		
+		fieldsAndLabels.add(startField);
+		fieldsAndLabels.add(stopField);
+		fieldsAndLabels.add(stepField);
+		
+		fieldsAndLabels.add(startLabel);
+		fieldsAndLabels.add(stopLabel);
+		fieldsAndLabels.add(stepLabel);
+	}
+	
+{% endhighlight %}
+
+Also going to add an addWindowListener() method to the Checkerboard class allowing the user to quit the application.
+
+{% highlight java %}
+		addWindowListener(
+				new WindowAdapter()
+						{
+					public void windowClosing(WindowEvent e)
+					{
+						System.exit(0);
+					}
+				}
+			);
+{% endhighlight %}
+
+So overall, this application still doesnt do anything.
+What I am going to do next will check to see if the <i>go</i> button or the <i>clear</i> button have been pressed and then converting the text fields answers to <i>integers</i>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
