@@ -66,7 +66,7 @@ Okay, So now I have been presented with this code:
 	}
 } //end
 {% endhighlight %}
-
+<br>
 It is a basic login page. Although it doesn't do anything.
 
 So I have been asked to do two things.
@@ -75,6 +75,7 @@ So I have been asked to do two things.
 <b>Part B</b> Create an Applet that Searches an Array to perform the task of logging in. (We will not be dealing with any sessions at the moment.)
 
 ### Part A, Using HTML to Host my Java Applet
+<br>
 {% highlight html %}
 <html>
 <head>
@@ -117,7 +118,7 @@ You can name these whatever you want.
 	String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
 {% endhighlight %}
 
-
+<br>
 
 We can just slip that in under the declared variables in our Login class.
 
@@ -129,7 +130,7 @@ I am going to add these lines of code to make things a little easier on me.
 id = idField.getText();
 password = passwordField.getText();
 {% endhighlight %}
-
+<br>
 Now we are going to focus on the <i>actionPerformed()</i> method for now.
 
 {% highlight java %}
@@ -141,7 +142,7 @@ public void actionPerformed(ActionEvent e)
 
 	}
 {% endhighlight %}
-
+<br>
 The first thing I am going to do now if compare the <i>ID</i> and <i>Password</i> using this bit of code. By making <i>success</i>=<i>true</i>; if success = true, Login Successful, if success = false, Login Unsuccessful.
 
 If the <i>Password</i> does not match the <i>ID</i>, the fields will reset.
@@ -166,7 +167,7 @@ If the <i>Password</i> does not match the <i>ID</i>, the fields will reset.
 
 {% endhighlight %}
 
-
+<br>
 and Voila.
 
 ## And we are done! 
