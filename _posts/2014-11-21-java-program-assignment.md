@@ -8,8 +8,9 @@ categories: java assignments
 
 This is going to be a post on creating your very own Checker board.
 I am going to program this step by step.
+<br>
 ## Here is the program:
-
+<br>
 ![checkerboard](http://i.imgur.com/U2ftOcp.png)<br>
 ![checkerboard-input](http://i.imgur.com/HmSzBmR.png)<br>
 ![checkerboard-input2](http://i.imgur.com/t4XZvHp.png)<br>
@@ -17,6 +18,7 @@ I am going to program this step by step.
 <br>
 Hopefully this is simple to understand. Hopefully it is fairly self explanatory.
 <br>
+
 ### Creating the application
 First I am going to need to import some packages and create my Checkerboard class.
 <br>
