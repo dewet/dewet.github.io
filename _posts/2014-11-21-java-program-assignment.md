@@ -9,7 +9,8 @@ categories: java assignments
 This is going to be a post on creating your very own Checker board.
 I am going to program this step by step.
 <br>
-## Below are screen shots of the Checker board program
+
+## Screenshots of the program 
 <br>
 ![checkerboard](http://i.imgur.com/U2ftOcp.png)<br>
 ![checkerboard-input](http://i.imgur.com/HmSzBmR.png)<br>
