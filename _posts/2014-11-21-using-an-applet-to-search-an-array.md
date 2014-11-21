@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Java (Using an Applet to Search an Array)
+title:      Java Using an Applet to Search an Array
 date:       2014-11-21 09:05:01
 summary:    
 categories: java assignments
