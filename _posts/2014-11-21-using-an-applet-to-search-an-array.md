@@ -130,7 +130,6 @@ id = idField.getText();
 password = passwordField.getText();
 {% endhighlight %}
 
-<br>
 
 Now we are going to focus on the <i>actionPerformed()</i> method for now.
 
