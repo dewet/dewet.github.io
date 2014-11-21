@@ -11,17 +11,16 @@ I am going to program this step by step.
 
 ### Creating the application
 First I am going to need to import some packages and create my Checkerboard class.
-
+<br>
 {% highlight java %}
 import java.awt.*;
 import java.awt.event.*;
 
 public class Checkerboard extends Frame implements ActionListener{}
 {% endhighlight %}
-
-
+<br><br>
 Next, I am going to declare some variables and construct some constructor methods.
-
+<br>
 {% highlight java %}
 import java.awt.*;
 import java.awt.event.*;
@@ -46,10 +45,10 @@ public class Checkerboard extends Frame implements ActionListener{
 		Button clearButton = new Button("Clear.");
 	}
 {% endhighlight %}
-
+<br><br>
 Because this class extends Frame, we will have to create a new class to output these constructor methods.
 Within this class, we will run a for loop, creating 16 TextArea() constructs, we will also construct the layout.
-
+<br>
 {% highlight java %}
 
 public Checkerboard(){
@@ -86,23 +85,24 @@ public Checkerboard(){
 	}
 	
 {% endhighlight %}
-
-Also going to add an addWindowListener() method to the Checkerboard class allowing the user to quit the application.
-
+<br><br>
+Also going to add an <i>addWindowListener()</i> method to the Checkerboard class allowing the user to quit the application.
+<br>
 {% highlight java %}
-		addWindowListener(
-				new WindowAdapter()
-						{
-					public void windowClosing(WindowEvent e)
-					{
-						System.exit(0);
-					}
-				}
-			);
+addWindowListener(
+	new WindowAdapter(){
+		public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		}
+	);
 {% endhighlight %}
+<br><br>
 
-So overall, this application still doesnt do anything.
-What I am going to do next will check to see if the <i>go</i> button or the <i>clear</i> button have been pressed and then converting the text fields answers to <i>integers</i>.
+So overall, this application still doesn't do anything.
+What I am going to do next will check to see if the <i>go</i> button or the <i>clear</i> button have been pressed and then converting the text fields answers into <i>integers</i> using the Integer.parseInt(<i>var</i>) method.
+
 
 
 
