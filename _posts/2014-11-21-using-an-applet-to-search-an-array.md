@@ -16,6 +16,9 @@ Okay, So now I have been presented with this code:
 
 <br>
 {% highlight java %}
+	
+	//Author: Ben de Wet
+	
 	public class Login extends Applet implements ActionListener{
 
 	//Declaring variables
@@ -61,7 +64,7 @@ Okay, So now I have been presented with this code:
 	//Sequential search
 
 	}
-}
+} //end
 {% endhighlight %}
 <br>
 
@@ -77,6 +80,7 @@ So I have been asked to do two things.
 ### Part A, Using HTML to Host my Java Applet
 
 <br>
+
 {% highlight html %}
 <html>
 <head>
@@ -101,9 +105,11 @@ Now that we have created this host document, we can get started on the Applet.
 
 Okay, so firstly, we have been given a bunch of code already. But if I compile this, I get a bunch of errors. I'm going to have to import some packages.
 {% highlight java %}
+
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
+
 {% endhighlight %}
 
 <br>
