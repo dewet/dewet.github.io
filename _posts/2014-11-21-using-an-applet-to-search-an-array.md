@@ -127,6 +127,7 @@ You can name these whatever you want.
 
 	String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
 	String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
+	
 {% endhighlight %}
 
 <br>
