@@ -66,3 +66,13 @@ Okay, So now I have been presented with this code:
 	}
 } //end
 {% endhighlight %}
+
+It is a basic login page. Although it doesn't do anything.
+
+So I have been asked to do two things.
+
+<b>Part A</b> Create a Host Document.
+<b>Part B</b> Create an Applet that Searches an Array to perform the task of logging in. (We will not be dealing with any sessions at the moment.)
+
+### Part A, Using HTML to Host my Java Applet
+
