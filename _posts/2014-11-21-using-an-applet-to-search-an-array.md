@@ -16,6 +16,7 @@ Okay, So now I have been presented with this code:
 <br>
 
 {% highlight java %}
+
 public class Login extends Applet implements ActionListener{
 
 	//Declaring variables
@@ -62,6 +63,7 @@ public class Login extends Applet implements ActionListener{
 
 	}
 }
+
 {% endhighlight %}
 
 <br>
@@ -80,6 +82,7 @@ So I have been asked to do two things.
 <br>
 
 {% highlight html %}
+
 <html>
 <head>
 	<title>
@@ -92,6 +95,7 @@ So I have been asked to do two things.
 	</applet>
 </body>
 </html>
+
 {% endhighlight %}
 
 <br>
@@ -105,9 +109,11 @@ Now that we have created this host document, we can get started on the Applet.
 Okay, so firstly, we have been given a bunch of code already. But if I compile this, I get a bunch of errors. I'm going to have to import some packages.
 
 {% highlight java %}
+
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
+
 {% endhighlight %}
 
 <br>
@@ -118,6 +124,7 @@ Okay, so what I am going to do first is create some Arrays for the <i>IDs</i> an
 You can name these whatever you want.
 
 {% highlight java %}
+
 	String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
 	String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
 {% endhighlight %}
@@ -131,8 +138,10 @@ and now all that we need to get this code working is a little bit of thought.
 I am going to add these lines of code to make things a little easier on me.
 
 {% highlight java %}
+
 id = idField.getText();
 password = passwordField.getText();
+
 {% endhighlight %}
 
 <br>
@@ -140,6 +149,7 @@ password = passwordField.getText();
 Now we are going to focus on the <i>actionPerformed()</i> method for now.
 
 {% highlight java %}
+
 public void actionPerformed(ActionEvent e)
 	{
 		success = false;
@@ -147,6 +157,7 @@ public void actionPerformed(ActionEvent e)
 		//Sequential search
 
 	}
+	
 {% endhighlight %}
 
 <br>
@@ -156,6 +167,7 @@ The first thing I am going to do now if compare the <i>ID</i> and <i>Password</i
 If the <i>Password</i> does not match the <i>ID</i>, the fields will reset.
 
 {& highlight java %}
+
 for(int i = 0; i<idArray.length; i++){
 	if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
 		success=true;
@@ -171,15 +183,17 @@ for(int i = 0; i<idArray.length; i++){
     		repaint();
     	  }
 }
+
 {% endhighlight %}
 
-and Voila.
+Voila.
 
 ## And we are done! 
 
 Just take a look at that finished code!
 
 {% highlight java %}
+
 import java.awt.*;
 import java.applet.*;
 import java.awt.event.*;
@@ -251,4 +265,5 @@ public class Login extends Applet implements ActionListener
 		}
 	}
 }
+
 {% endhighlight %}
