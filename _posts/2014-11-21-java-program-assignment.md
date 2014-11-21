@@ -10,7 +10,7 @@ This is going to be a post on creating your very own Checker board.
 I am going to program this step by step.
 <br>
 
-## Screenshots of the program 
+### Screenshots of the program 
 <br>
 ![checkerboard](http://i.imgur.com/U2ftOcp.png)<br>
 ![checkerboard-input](http://i.imgur.com/HmSzBmR.png)<br>
