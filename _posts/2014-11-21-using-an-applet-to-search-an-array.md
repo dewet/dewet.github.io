@@ -5,6 +5,9 @@ date:       2014-11-21 09:05:01
 summary:    Just going through very basic Login system, This was an assignment given to me a few days ago, I decided to blog it up because it is a great way to keep a tab on what I am doing at the moment.
 categories: java assignments
 ---
+
+This will build a simple Login Applet.
+
 ### Screenshots of the program 
 <br>
 ![login](http://i.imgur.com/d3nQQnb.png)<br>
