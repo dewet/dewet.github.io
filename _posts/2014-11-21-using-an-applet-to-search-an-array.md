@@ -75,4 +75,41 @@ So I have been asked to do two things.
 <b>Part B</b> Create an Applet that Searches an Array to perform the task of logging in. (We will not be dealing with any sessions at the moment.)
 
 ### Part A, Using HTML to Host my Java Applet
+{% highlight html %}
+<html>
+<head>
+	<title>
+		Password Applet
+	</title>
+</head>
+<body>
+	<applet code="PasswordApplet.class" width="300" height="300">
+		Password Applet
+	</applet>
+</body>
+</html>
+{% endhighlight %}
+<br>
+
+Now that we have created this host document, we can get started on the Applet.
+
+### Part B, Creating the Applet
+
+<br>
+
+Okay, so firstly, we have been given a bunch of code already. But if I compile this, I get a bunch of errors. I'm going to have to import some packages.
+{% highlight java %}
+
+import java.awt.*;
+import java.applet.*;
+import java.awt.event.*;
+
+{% endhighlight %}
+
+<br>
+
+That's better.
+
+Okay, so what I am going to do first is create some Arrays for the <i>IDs</i> and corresponding <i>Passwords</i>.
+You can name these whatever you want.
 
