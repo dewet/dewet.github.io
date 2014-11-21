@@ -2,7 +2,11 @@
 layout:     post
 title:      Java Checker board Assignment
 date:       2014-11-21 01:01:01
-summary:    This is me attempting to create a checker-board Java application. This is an assignment that I have to complete. This is just a run down of what I have done/am doing.
+summary:    This is me attempting to create a checker-board Java application. This is an assignment that I have to complete. This is just a run down of what I have done/am doing. {% highlight java %}
+for(int i = start; i<stop; i+=step){
+	blockDisplay[i].setBackground(green);
+}
+{% endhighlight %}
 categories: java assignments
 ---
 
