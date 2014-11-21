@@ -16,52 +16,51 @@ Okay, So now I have been presented with this code:
 <br>
 
 {% highlight java %}
-public class Login extends Applet implements ActionListener
-{
-   //Declaring variables
-   String id, password;
-   boolean success;
+public class Login extends Applet implements ActionListener{
 
-   //Create components for applet
-   Label headerLabel = new Label("Please type your ID and Password");
+	//Declaring variables
+	String id, password;
+	boolean success;
 
-   Label idLabel = new Label("ID:");
-      TextField idField = new TextField(8);
+	//Create components for applet
+	Label headerLabel = new Label("Please type your ID and Password");
 
-   Label passwordLabel = new Label("Password:");
-      TextField passwordField = new TextField(8);
+	Label idLabel = new Label("ID:");
+		TextField idField = new TextField(8);
+
+	Label passwordLabel = new Label("Password:");
+		TextField passwordField = new TextField(8);
 
 
-   Button loginButton = new Button("Login");
+	Button loginButton = new Button("Login");
 
-   public void init()
-   {
-      //Set color, layout, and add components
-      setBackground(Color.orange);
+	public void init(){
+	
+	//Set color, layout, and add components
+	setBackground(Color.orange);
 
-      setLayout(new FlowLayout(FlowLayout.LEFT,50,30));
+	setLayout(new FlowLayout(FlowLayout.LEFT,50,30));
 
-      add(headerLabel);
+	add(headerLabel);
 
-      add(idLabel);
-         add(idField);
-         idField.requestFocus();
+	add(idLabel);
+		add(idField);
+		idField.requestFocus();
 
-      add(passwordLabel);
-         add(passwordField);
- 		 passwordField.setEchoChar('*');
+	add(passwordLabel);
+		add(passwordField);
+		passwordField.setEchoChar('*');
 
-      add(loginButton);
-         loginButton.addActionListener(this);
-   }
+	add(loginButton);
+		loginButton.addActionListener(this);
+	}
 
-   public void actionPerformed(ActionEvent e)
-   {
-      success = false;
+	public void actionPerformed(ActionEvent e){
+	success = false;
 
-      //Sequential search
+	//Sequential search
 
-   }
+	}
 }
 {% endhighlight %}
 
@@ -80,6 +79,20 @@ So I have been asked to do two things.
 
 <br>
 
+{% highlight html %}
+<html>
+<head>
+	<title>
+		Password Applet
+	</title>
+</head>
+<body>
+	<applet code="PasswordApplet.class" width="300" height="300">
+		Password Applet
+	</applet>
+</body>
+</html>
+{% endhighlight %}
 
 <br>
 
@@ -105,11 +118,12 @@ Okay, so what I am going to do first is create some Arrays for the <i>IDs</i> an
 You can name these whatever you want.
 
 {% highlight java %}
-   String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
-   String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
+	String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
+	String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
 {% endhighlight %}
 
 <br>
+
 We can just slip that in under the declared variables in our Login class.
 
 and now all that we need to get this code working is a little bit of thought.
@@ -127,12 +141,12 @@ Now we are going to focus on the <i>actionPerformed()</i> method for now.
 
 {% highlight java %}
 public void actionPerformed(ActionEvent e)
-   {
-      success = false;
+	{
+		success = false;
 
-      //Sequential search
+		//Sequential search
 
-   }
+	}
 {% endhighlight %}
 
 <br>
@@ -143,13 +157,13 @@ If the <i>Password</i> does not match the <i>ID</i>, the fields will reset.
 
 {& highlight java %}
 for(int i = 0; i<idArray.length; i++){
-    if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
+	if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
 		success=true;
-    }
+	}
 	if(success==true){
 		headerLabel.setText("Login Successful");
-    	repaint();
-    }
+		repaint();
+	}
 	else{
 		headerLabel.setText("Login Unsuccessful");
 			idField.setText("");
@@ -172,72 +186,69 @@ import java.awt.event.*;
 
 public class Login extends Applet implements ActionListener
 {
-   //Declaring variables
-   String id, password;
-   boolean success;
-   
-   String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
-   String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
+	//Declaring variables
+	String id, password;
+	boolean success;
 
-   //Create components for applet
-   Label headerLabel = new Label("Please type your ID and Password");
+	String idArray[] = {"id", "spicy", "manboy", "ultrasound", "venix"};
+	String passwordArray[] = {"password", "skull", "badger123", "yoyo", "gom"};
 
-   Label idLabel = new Label("ID:");
-      TextField idField = new TextField(8);
+	//Create components for applet
+	Label headerLabel = new Label("Please type your ID and Password");
 
-   Label passwordLabel = new Label("Password:");
-      TextField passwordField = new TextField(8);
+	Label idLabel = new Label("ID:");
+	TextField idField = new TextField(8);
+
+	Label passwordLabel = new Label("Password:");
+	TextField passwordField = new TextField(8);
 
 
-   Button loginButton = new Button("Login");
+	Button loginButton = new Button("Login");
 
-   public void init()
-   {
-      //Set color, layout, and add components
-      setBackground(Color.orange);
+	public void init(){
+	//Set color, layout, and add components
+	setBackground(Color.orange);
 
-      setLayout(new FlowLayout(FlowLayout.LEFT,50,30));
+	setLayout(new FlowLayout(FlowLayout.LEFT,50,30));
 
-      add(headerLabel);
+	add(headerLabel);
 
-      add(idLabel);
-         add(idField);
-         idField.requestFocus();
+	add(idLabel);
+		add(idField);
+		idField.requestFocus();
 
-      add(passwordLabel);
-         add(passwordField);
- 		 passwordField.setEchoChar('*');
+	add(passwordLabel);
+		add(passwordField);
+		passwordField.setEchoChar('*');
 
-      add(loginButton);
-         loginButton.addActionListener(this);
-   }
+	add(loginButton);
+		loginButton.addActionListener(this);
+	}
 
-   public void actionPerformed(ActionEvent e)
-   {
-      success = false;
+	public void actionPerformed(ActionEvent e){
+		success = false;
       
       
-      //Sequential search
+		//Sequential search
       
-      id = idField.getText();
-      password = passwordField.getText();
+		id = idField.getText();
+		password = passwordField.getText();
       
-      for(int i = 0; i<idArray.length; i++){
-    	  if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
-    		  success=true;
-    	  }
-    	  
-    	  if(success==true){
-    		  headerLabel.setText("Login Successful");
-    		  repaint();
-    	  }else{
-    		  headerLabel.setText("Login Unsuccessful");
-    		  idField.setText("");
-    		  passwordField.setText("");
-    		  repaint();
-    	  }
-    	 
-      }
-   }
+	for(int i = 0; i<idArray.length; i++){
+		if ((idArray[i].compareTo(id)==0) && (passwordArray[i].compareTo(password)==0)){
+			success=true;
+		}
+		
+		if(success==true){
+			headerLabel.setText("Login Successful");
+			repaint();
+		}else{
+			headerLabel.setText("Login Unsuccessful");
+			idField.setText("");
+			passwordField.setText("");
+			repaint();
+			}
+		}
+	}
 }
 {% endhighlight %}
