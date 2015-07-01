@@ -1,32 +1,35 @@
-# Site settings
-title:       Squiggle
-email:       brdewet@gmail.com
-author:      Ben de Wet
-description: "A blog about things... and stuff too..."
-baseurl:     ""
-url:         "http://dewet.github.io"
+name: Ben de Wet
+description: Lorum Ipsum yo!
+meta_description: "Your New Jekyll Site, Blogging about stuffs"
 
-# Google analytics
-google_analytics:
+aboutPage: true
 
-# Optional features
-animated:           false
-show_related_posts: false
-show_post_footers:  false
+markdown: redcarpet
+highlighter: pygments
 
-# Social icons
-show_social_icons: false
-github_username:
-twitter_username:
-google_plus_id:
-linkedin_username:
-bitcoin_url:
-paypal_url:
-flattr_button:
+paginate: 20
+baseurl: /
+domain_name: 'http://dewet.io'
+google_analytics: 'UA-XXXXXXXX-X'
+disqus_shortname: 'your-disqus-shortname'
 
-# Build settings
-markdown:     kramdown
-permalink:    pretty
-paginate:     5
-sass:
-  compressed: true
+# Details for the RSS feed generator
+url:            'http://dewet.io'
+author:         'Ben de Wet'
+authorTwitter:  'YourTwitterUsername'
+
+permalink:       /:year/:title/
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post

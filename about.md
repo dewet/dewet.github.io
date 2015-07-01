@@ -1,17 +1,13 @@
 ---
-layout: page
-title: About this blog
-permalink: /about/
+title: About
+permalink: about/
+profile: true
 ---
 
-This blog has been created by [Ben de Wet]({{ site.baseurl }}/about/)
+I am Ben de Wet, a programmer/web developer from the Southern most point of South Africa. This website will be updated frequently with new concepts and ideas for projects that I take part of.
 
-This is a [Jekyll](http://jekyllrb.com/) blog created purely for the purpose of spreading my thoughts throughout the internet. I needed a quick and easy way to keep a tab on whats happening in my life at the moment, the content of this blog may vary between programming to mushroom growing and everything else in between.
+If you would like me to create a website for you or if you would like know what this website is really about, just contact me on ben@dewet.io or brdewet@icloud.com.
 
+Thank you!
 
-Thanks to the following for bringing this blog to you with all its simplistic glory:
-
-* [BASSCSS](http://basscss.com)
-* [Jekyll](http://jekyllrb.com)
-* [Refills](http://refills.bourbon.io/)
-* [Solarized](http://ethanschoonover.com/solarized)
+{% include footer.html %}
