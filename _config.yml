@@ -1,5 +1,5 @@
 name: Ben de Wet
-description: Lorum Ipsum yo!
+description: sqgl.org development blog.
 meta_description: "Your New Jekyll Site, Blogging about stuffs"
 
 aboutPage: true
@@ -14,9 +14,9 @@ google_analytics: 'UA-XXXXXXXX-X'
 disqus_shortname: 'your-disqus-shortname'
 
 # Details for the RSS feed generator
-url:            'http://dewet.io'
+url:            'http://sqgl.org'
 author:         'Ben de Wet'
-authorTwitter:  'YourTwitterUsername'
+authorTwitter:  'dewet_'
 
 permalink:       /:year/:title/
 
